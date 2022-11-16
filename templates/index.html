@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Class</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/main.min.css'%}">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="header__top">
+            <a href="#" class="navbar__logo logo">
+                <img src="../static/images/logo.jpg" alt="logo" class="logo__img">
+            </a>
+            <nav class="navbar header__navbar">
+                <ul class="navbar__list">
+                    <li class="navbar__item">
+                        <a href="#" class="navbar__link">Home</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="inner-pages/about.html" class="navbar__link">About us</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="inner-pages/instructors.html" class="navbar__link">Instructors</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="inner-pages/categories.html" class="navbar__link">Categories</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#" id="registr_window" class="navbar__link">Registr</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="inner-pages/contacts.html" class="navbar__link">Contacts</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header__bottom">
+            <div class="container">
+                <div class="header__bottom-inner">
+                    <div class="header__bottom-content">
+                        <h1 class="header__bottom-title">Driving school "FirstClass"</h1>
+                        <p class="header__bottom-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum sed fugit odio at aliquid quibusdam nisi nihil, ullam necessitatibus eos minima quam quae, blanditiis quas nesciunt sapiente, temporibus perspiciatis commodi nam adipisci nemo iste assumenda. Laborum velit perspiciatis sint tempora asperiores, exercitationem natus voluptas voluptate libero nam nostrum ipsam quam iusto in perferendis cupiditate dolorem molestiae at officiis incidunt voluptatibus mollitia eius ducimus! Maxime blanditiis repudiandae dolore? Nemo aspernatur officiis ratione. Maiores, ex tempora? Aspernatur?
+                        </p>
+                        <a href="inner-pages/about.html" class="header__bottom-link">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="adventages">
+        <div class="container">
+            <div class="adventages__inner">
+                <h2 class="adventages__title">Our adventages</h2>
+                {% for j in advantage %}
+               <ul class="adventages__list">
+
+                    <li class="adventages__item">
+                        <img src="{{j.image.url}}" alt="Price" class="adventages__item-img">
+                        <h3 class="adventages__item-title">{{j.title}}</h3>
+                        <p class="adventages__item-text">
+                            {{j.description}}
+                        </p>
+                    </li>
+
+                </ul>
+                 {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="instructors">
+        <div class="container">
+            <div class="instructors__inner">
+                <h2 class="instructors__title">Our instructors</h2>
+                <div class="slider instructors__slider">
+                  {% for i in instructor%}
+                  <div class="slider__item">
+                    <div class="slider__item-wrapper">
+                      <img src="{{i.image.url}}"  alt="instructor" class="slider__img">
+                    </div>
+                    <div class="slider__item-inner">
+                      <h3 class="slider__item-title">
+                          {{i.title}}
+                      </h3>
+                      <p class="slider__item-text">
+                          {{i.description}}
+                      </p>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="registr" onclick="">
+        <div class="registr__inner">
+            <h3 class="registr__title">Registration</h3>
+            <button class="registr__cancel" type="button">
+                x
+            </button>
+            <form class="registr__form">
+                <input type="text" placeholder="Your name" class="registr__input">
+                <input type="text" placeholder="Your surname" class="registr__input">
+                <input type="number" placeholder="Your phone number" class="registr__input">
+                <input type="email" placeholder="Your email" class="registr__input">
+                <input type="password" placeholder="Your password" class="registr__input">
+                <button type="submit">Submit</button>
+                <button type="reset">reset</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">© 2022 driving school "First class". All rights reserved.</p>
+                <div class="footer__socials">
+                    <h4 class="footer__socials-title">Socials</h4>
+                    <ul class="footer__socials-list">
+                        <li class="footer__socials-item">
+                            <a href="https://instagram.com" class="footer__socials-link">
+                                <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                    <path d="M26.1141 7.05249C26.0526 5.77515 25.8388 4.90283 25.5262 4.13965C25.2087 3.33893 24.7108 2.61365 24.0674 2.01416C23.4358 1.40369 22.6713 0.931091 21.8274 0.6297C21.0229 0.333252 20.1037 0.130554 18.7575 0.0725098C17.4088 0.013916 16.9779 0 13.5433 0C10.1088 0 9.67784 0.013916 8.32913 0.0721435C6.98293 0.130554 6.06379 0.333435 5.25928 0.630066C4.41539 0.931274 3.65102 1.40369 3.01922 2.01416C2.37584 2.61346 1.87777 3.33875 1.56013 4.13947C1.2477 4.90283 1.03408 5.77515 0.972903 7.05231C0.911151 8.33221 0.896484 8.74091 0.896484 11.9998C0.896484 15.2589 0.911151 15.6678 0.972903 16.9475C1.03427 18.2247 1.24809 19.097 1.56071 19.8604C1.87815 20.6609 2.37603 21.3864 3.01941 21.9857C3.65102 22.5961 4.41559 23.0685 5.25947 23.3698C6.06379 23.6666 6.98313 23.8693 8.32933 23.9277C9.67822 23.9861 10.1089 23.9998 13.5435 23.9998C16.9781 23.9998 17.409 23.9861 18.7577 23.9277C20.1039 23.8693 21.0231 23.6666 21.8276 23.3698C23.5263 22.7465 24.8693 21.4722 25.5262 19.8604C25.839 19.097 26.0526 18.2247 26.1141 16.9475C26.1755 15.6676 26.1902 15.2589 26.1902 12C26.1902 8.74091 26.1755 8.33221 26.1141 7.05249ZM23.8376 16.8492C23.7815 18.0192 23.5754 18.6546 23.4023 19.0774C22.9768 20.124 22.1051 20.9511 21.002 21.3549C20.5565 21.5191 19.8868 21.7147 18.6537 21.7679C17.3204 21.8258 16.9204 21.8379 13.5433 21.8379C10.1661 21.8379 9.76622 21.8258 8.43276 21.7679C7.19984 21.7147 6.53021 21.5191 6.08444 21.3549C5.53523 21.1624 5.03832 20.8557 4.63037 20.4571C4.21026 20.07 3.88703 19.5987 3.68421 19.0774C3.51111 18.6546 3.30501 18.0192 3.24886 16.8492C3.18807 15.5839 3.17514 15.2043 3.17514 12.0002C3.17514 8.79584 3.18807 8.41644 3.24886 7.151C3.30521 5.98096 3.51111 5.34558 3.68421 4.92279C3.88703 4.40149 4.21045 3.92999 4.63037 3.54291C5.03832 3.14429 5.53523 2.83759 6.08463 2.64532C6.53021 2.4809 7.19984 2.28552 8.43295 2.23206C9.76641 2.17438 10.1665 2.16211 13.5433 2.16211H13.5431C16.92 2.16211 17.3201 2.17438 18.6537 2.23224C19.8868 2.28552 20.5563 2.48108 21.002 2.64532C21.5512 2.83777 22.0482 3.14447 22.4561 3.54291C22.8762 3.92999 23.1994 4.40149 23.4021 4.92279C23.5754 5.34558 23.7815 5.98096 23.8376 7.151C23.8984 8.41626 23.9113 8.79584 23.9113 12C23.9113 15.2043 23.8986 15.5837 23.8376 16.8492Z" fill="#ffffff"/>
+                                    <path d="M13.5432 5.83789C9.95651 5.83789 7.04895 8.59692 7.04895 12.0001C7.04895 15.4033 9.95651 18.1622 13.5432 18.1622C17.13 18.1622 20.0376 15.4033 20.0376 12.0001C20.0376 8.59692 17.13 5.83789 13.5432 5.83789ZM13.5432 16.0001C11.2151 15.9999 9.32761 14.2091 9.3278 11.9999C9.3278 9.79095 11.2151 8 13.5434 8C15.8716 8.00018 17.7589 9.79095 17.7589 11.9999C17.7589 14.2091 15.8714 16.0001 13.5432 16.0001Z" fill="ffffff"/>
+                                    <path d="M21.8117 5.59442C21.8117 6.38965 21.1323 7.03436 20.2942 7.03436C19.4559 7.03436 18.7764 6.38965 18.7764 5.59442C18.7764 4.79901 19.4559 4.1543 20.2942 4.1543C21.1323 4.1543 21.8117 4.79901 21.8117 5.59442Z" fill="#ffffff"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0">
+                                    <rect width="25.2937" height="24" fill="white" transform="translate(0.896484)"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="footer__socials-item">
+                            <a href="https://twitter.com" class="footer__socials-link">
+                                <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.55125 21.9998C19.892 21.9998 25.5468 13.5366 25.5468 6.19785C25.5468 5.95746 25.5418 5.71809 25.5309 5.47997C26.6285 4.69599 27.5826 3.71768 28.3352 2.60409C27.328 3.04647 26.2438 3.34407 25.1068 3.47852C26.2674 2.79079 27.1586 1.70322 27.5789 0.40665C26.4926 1.04275 25.2897 1.50496 24.009 1.75465C22.9832 0.675134 21.5225 0 19.9052 0C16.8007 0 14.283 2.4872 14.283 5.55308C14.283 5.98905 14.3324 6.41285 14.4288 6.8195C9.75633 6.58715 5.61304 4.37732 2.84052 1.01673C2.35781 1.83746 2.07935 2.791 2.07935 3.80834C2.07935 5.73503 3.07195 7.43618 4.58113 8.43123C3.65877 8.40314 2.79244 8.15304 2.03503 7.73668C2.03419 7.76002 2.03419 7.78273 2.03419 7.80752C2.03419 10.4973 3.97194 12.7431 6.54459 13.252C6.07212 13.379 5.57499 13.4473 5.06217 13.4473C4.7005 13.4473 4.34803 13.4122 4.00539 13.3472C4.7212 15.5539 6.79672 17.1596 9.25732 17.2047C7.33316 18.6945 4.90914 19.582 2.27482 19.582C1.82158 19.582 1.37378 19.5564 0.933716 19.5052C3.4217 21.0805 6.3763 22 9.55146 22" fill="#fff"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="{% static 'js/jquery-3.6.0.js'%}"></script>
+    <script src="{% static 'js/slick.min.js'%}"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+
+</body>
+</html>
